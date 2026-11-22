@@ -42,21 +42,13 @@ export default function Header() {
 
         {/* Desktop actions */}
         <div className="header-actions">
-          <a
-            className="header-phone"
-            href="tel:+442080582750"
-            aria-label="Call Transport Navigator on 020 8058 2750"
-          >
-            020 8058 2750
-          </a>
-
-          <Link
-            href="/book"
-            className="button button-gold header-book"
-          >
-            Book a Journey
-          </Link>
-        </div>
+  <Link
+    href="/book"
+    className="button button-gold header-book"
+  >
+    Book a Journey
+  </Link>
+</div>
 
         {/* Mobile navigation */}
         <details className="mobile-menu">
