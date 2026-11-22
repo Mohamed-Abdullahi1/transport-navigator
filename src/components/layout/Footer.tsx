@@ -119,7 +119,6 @@ export default function Footer() {
         <div className="container footer-bottom-inner">
           <p>
             © 2026 Transport Navigator Ltd.
-All rights reserved.
             All rights reserved.
           </p>
 
