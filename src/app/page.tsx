@@ -1,69 +1,310 @@
-import Image from "next/image";
+
+import Link from "next/link";
+import { journeyTypes, siteConfig } from "@/lib/constants";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
+    <main>
+      {/* HERO */}
+      <section className="hero">
+        <div className="container hero-grid">
+          <div className="hero-content">
+            <p className="eyebrow">
+              London Private Hire
+            </p>
+
+            <h1>
+              Your journey,
+              <span> professionally arranged.</span>
+            </h1>
+
+            <p className="hero-description">
+              Book your next journey with Transport Navigator.
+              Whether you're travelling locally, heading to
+              the airport or planning a longer journey,
+              arrange your transport through our online
+              booking service.
+            </p>
+
+            <div className="button-row">
+              <Link
+                href="/book"
+                className="button button-gold"
+              >
+                Book a Journey
+                <span aria-hidden="true">→</span>
+              </Link>
+
+              <a
+                href="mailto:info@transportnavigator.co.uk"
+                className="button button-outline"
+              >
+                Contact Us
+              </a>
+            </div>
+
+            <p className="hero-small">
+              All journeys are subject to booking confirmation.
+            </p>
+          </div>
+
+          {/* BRANDED HERO PANEL */}
+          <div className="hero-panel">
+            <div className="panel-accent" />
+
+            <p className="panel-eyebrow">
+              TRANSPORT NAVIGATOR
+            </p>
+
+            <h2>
+              Safe Rides,
+              <br />
+              Smarter Journeys.
+            </h2>
+
+            <div className="panel-divider" />
+
+            <p className="panel-description">
+              Pre-booked passenger journeys, arranged
+              through our online booking service.
+            </p>
+
+            <ul className="hero-features">
+              <li>
+                <span>✓</span>
+                Local journeys
+              </li>
+              <li>
+                <span>✓</span>
+                Airport transfers
+              </li>
+              <li>
+                <span>✓</span>
+                Long-distance travel
+              </li>
+            </ul>
+
+            
+<div className="panel-bottom">
+  <a
+    href="mailto:info@transportnavigator.co.uk"
+    className="panel-contact"
+  >
+    <span className="panel-contact-copy">
+      <span className="panel-contact-label">
+        NEED ASSISTANCE?
+      </span>
+      <span className="panel-contact-title">
+        Get in touch with our team
+      </span>
+    </span>
+
+    <span className="panel-contact-arrow" aria-hidden="true">
+      ↗
+    </span>
+  </a>
+</div>
+
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </section>
+
+      {/* JOURNEY OPTIONS */}
+      <section id="journeys" className="section">
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">
+              JOURNEY OPTIONS
+            </p>
+
+            <h2>
+              Where can we take you?
+            </h2>
+
+            <p>
+              From local journeys to longer-distance travel,
+              enter your journey details through our
+              online booking service.
+            </p>
+          </div>
+
+          <div className="journey-grid">
+            {journeyTypes.map((journey) => (
+              <article
+                className="journey-card"
+                key={journey.number}
+              >
+                <span className="card-number">
+                  {journey.number}
+                </span>
+
+                <div>
+                  <h3>{journey.title}</h3>
+                  <p>{journey.description}</p>
+                </div>
+
+                <Link
+                  href="/book"
+                  className="card-link"
+                >
+                  Book this journey
+                  <span aria-hidden="true">→</span>
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* HOW IT WORKS */}
+      <section
+        id="how-it-works"
+        className="section section-muted"
+      >
+        <div className="container">
+          <div className="section-heading">
+            <p className="eyebrow">
+              ONLINE BOOKING
+            </p>
+
+            <h2>
+              Booking your journey
+            </h2>
+
+            <p>
+              Arrange your journey in three straightforward
+              steps.
+            </p>
+          </div>
+
+          <div className="steps-grid">
+            <article className="step">
+              <span className="step-number">
+                01
+              </span>
+
+              <h3>Enter your journey details</h3>
+
+              <p>
+                Provide your pickup location, destination,
+                date, time and passenger information.
+              </p>
+            </article>
+
+            <article className="step">
+              <span className="step-number">
+                02
+              </span>
+
+              <h3>Submit your booking</h3>
+
+              <p>
+                Review your journey details and submit
+                them through our booking system.
+              </p>
+            </article>
+
+            <article className="step">
+              <span className="step-number">
+                03
+              </span>
+
+              <h3>Receive confirmation</h3>
+
+              <p>
+                Your journey is confirmed when Transport
+                Navigator accepts the booking.
+              </p>
+            </article>
+          </div>
+
+          <Link
+            href="/book"
+            className="button button-gold steps-button"
+          >
+            Start Your Booking
+          </Link>
+        </div>
+      </section>
+
+      {/* ABOUT US */}
+      <section id="about" className="section">
+        <div className="container about-grid">
+          <div>
+            <p className="eyebrow">
+              ABOUT US
+            </p>
+
+            <h2>
+              Passenger transport with a straightforward
+              booking process.
+            </h2>
+          </div>
+
+          <div className="about-content">
+            <p>
+              Transport Navigator is a London-based
+              private hire operator providing pre-booked
+              passenger journeys.
+            </p>
+
+            <p>
+              Our online booking service allows passengers
+              to arrange transport in advance by providing
+              their journey details.
+            </p>
+
+            <p>
+              For assistance with a booking or a general
+              enquiry, you can contact our team directly
+              by email.
+            </p>
+
+            <a
+              href="mailto:info@transportnavigator.co.uk"
+              className="text-link"
+            >
+              info@transportnavigator.co.uk
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* CONTACT SECTION */}
+      <section className="contact-banner">
+        <div className="container contact-banner-inner">
+          <div>
+            <p className="eyebrow eyebrow-light">
+              CONTACT US
+            </p>
+
+            <h2>
+              Need help arranging your journey?
+            </h2>
+
+            <p>
+              Email our team for booking assistance,
+              enquiries or help with an existing journey.
+            </p>
+          </div>
+
+          <div className="button-row">
+            <a
+              href="mailto:info@transportnavigator.co.uk"
+              className="button button-white-outline"
+            >
+              Contact Us
+            </a>
+
+            <Link
+              href="/book"
+              className="button button-gold"
+            >
+              Book Online
+            </Link>
+          </div>
+        </div>
+      </section>
+    </main>
   );
 }
