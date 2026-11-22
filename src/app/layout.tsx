@@ -1,4 +1,3 @@
-
 import type { Metadata } from "next";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -12,6 +11,10 @@ export const metadata: Metadata = {
   description:
     "Book pre-arranged private hire journeys with Transport Navigator. Local journeys, airport transfers and long-distance travel.",
   applicationName: "Transport Navigator",
+  icons: {
+    icon: "/images/favicon.png",
+    apple: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({
